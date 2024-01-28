@@ -7,7 +7,7 @@ An meteore app built for easy loan request with admin panel for better managemen
 
 
 ## Demo
-live link - !("https://mergerware.meteorapp.com/")
+live link - "https://mergerware.meteorapp.com/"
 
 ![Admin](./imports/assets/admin_view.png)
 ![Borrower](./imports/assets/borrower_view.png)
@@ -51,7 +51,7 @@ Starting the meteor app
 ```
 
 
-note - mongoDB is inbuilt , to access  add 
+note - mongoDB is inbuilt , to access  add  url 'mongodb://127.0.0.1:3001/meteor' in mongoDb compass
 
 Yay! now you are all set ! 👍 .
 
