@@ -17,34 +17,58 @@ function Admin() {
 
   return (
     <div className=' w-full p-1'>
-        {allLoans.map((loan) => (
-    <div className='flex w-full bg-gray-100  rounded-lg p-2 m-2 mt-5 ' key={loan._id}>
-      <div className='flex flex-col'>
-        <p className='font-semibold text-sm'>Borrower Email:</p>
-        <p>{loan.borrowerInfo.email}</p>
-      </div>
-      <div className='flex flex-col ml-4'>
-        <p className='font-semibold'>Loan Amount:</p>
-        <p>{loan.borrowerInfo.loanAmount}</p>
-      </div>
-      <div className='flex flex-col ml-4'>
-        <p className='font-semibold text-sm'>Requested On:</p>
-        <p>{new Date(loan.createdAt).toLocaleString()}</p>
-      </div>
-      <div className='flex flex-col ml-4'>
-        <p className='font-semibold text-sm'>Status:</p>
-        <p>{loan.status}</p>
-      </div>
-      <div className='flex flex-col ml-4'>
-        <p className='font-semibold text-sm'>Approved By:</p>
-        <p>{loan.approvedBy}</p>
-      </div>
-      <div className='flex flex-col ml-4'>
-        <p className='font-semibold text-sm'>Approved Time:</p>
-        <p>{new Date(loan.approvedTime).toLocaleString()}</p>
-      </div>
-    </div>
-  ))}
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                   Borrower info
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Loan amount
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Requested on
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Approved by
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Approved time
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+           {allLoans.map((loan)=>(
+             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                 {loan.borrowerInfo.email}
+             </th>
+             <td class="px-6 py-4">
+                 {loan.borrowerInfo.loanAmount}
+             </td>
+             <td class="px-6 py-4">
+                 {new Date(loan.createdAt).toLocaleString()}
+             </td>
+             <td class="px-6 py-4">
+                 {loan.status}
+             </td>
+             <td class="px-6 py-4">
+                 {loan.approvedBy ? loan.approvedBy : 'N/A' }
+             </td>
+             <td class="px-6 py-4">
+               { loan.approvedTime ? new Date(loan.approvedTime).toLocaleString(): 'N/A'}
+             </td>
+         </tr>
+        
+           ))}
+        </tbody>
+    </table>
+</div>
+
     </div>
   )
 }

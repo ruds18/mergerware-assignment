@@ -49,7 +49,7 @@ function LoanRequest({role,email}) {
                             <div className='flex w-full justify-between mt-4  items-center' key={loan._id}>
                                   <p className='flex md:text-lg'> 💲{loan.borrowerInfo.loanAmount} </p>
                                    <p className='font-light text-sm  hidden   md:block' >🕕 {new Date(loan.createdAt).toLocaleString()} </p>
-                                   <p className='flex items-center justify-center sm:text-sm md:text-md'> <p className={`w-3 h-3 ${loan.status==='Pending'?'bg-red-500':'bg-green-400'} bg-red-500 rounded-xl  mr-2 flex`}></p> {loan.status}</p>
+                                   <p className='flex items-center justify-center sm:text-sm md:text-md'> <p className={`w-3 h-3 ${loan.status==='Pending'?'bg-red-500':'bg-green-400'} rounded-xl  mr-2 flex`}></p> {loan.status}</p>
                              </div>
                         )
                     })}

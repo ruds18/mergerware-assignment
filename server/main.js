@@ -15,7 +15,6 @@ Meteor.methods({
         password:password,
         role:role
       };
-  
       const userId = Meteor.users.insert(newUser);
       return userId;
     } catch (error) {
@@ -81,11 +80,7 @@ Meteor.publish('allLoans', function () {
   return Loans.find();
 });
 
-
 Meteor.publish('userLoans', function (userId) {
   return Loans.find({ 'borrowerInfo.email': userId });
 });
 
-// Meteor.startup(async () => {
-   
-// });
