@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Meteor } from "meteor/meteor";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -24,14 +24,14 @@ function Signup() {
   };
   console.log(role)
   return (
-    <div className="bg-grey-300 h-dvh flex  justify-center items-center">
-      <div className="bg-white p-5 rounded-lg w-[25%] ">
-        <h1 className="text-2xl text-center">Welcome user!</h1>
+    <div className="bg-grey-300 h-dvh flex  mx-5 md:mx-0 justify-center items-center">
+      <div className="bg-white p-5 rounded-lg w-full md:w-[25%] ">
+        <h1 className="text-2xl text-center">Create Account</h1>
         <form
           className="h-full w-full flex flex-col justify-center"
           onSubmit={(e) => handelSubmit(e)}
         >
-          <p className="text-center mt-[3rem] mb-[1rem]">Signup</p>
+          <p className="text-center mt-[1rem] mb-[1rem]">Signup</p>
           <input
             className="mt-4 px-4 py-2"
             type="email"
@@ -48,12 +48,14 @@ function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+           
            <div className="mt-3 flex justify-between items-center">
             <div className="flex items-center">
             <input
             type="radio"
             name="role"
             value="Admin"
+            required
             onChange={(e) => setRole(e.target.value)}
           />
          
@@ -77,19 +79,21 @@ function Signup() {
             value="Lender"
             onChange={(e) => setRole(e.target.value)}
           />
-         
+        
           <label className="ml-2">
             Lender
           </label>
           </div>
           </div>
+          <Link to="/login" className="font-light mx-3 my-4 text-gray-500">Login?</Link>
           <button
             type="submit"
-            className="bg-black text-white mt-[2rem] px-3 py-2 rounded-lg"
+            className="bg-black text-white mt-[1rem] px-3 py-2 rounded-lg"
           >
-            Signup
+            Lets go!
           </button>
         </form>
+        
       </div>
     </div>
   );

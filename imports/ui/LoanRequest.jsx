@@ -31,9 +31,9 @@ function LoanRequest({role,email}) {
           });
     }
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-full '>
        <h1 className='text-2xl font-light'>Loan Request</h1>
-       <div className='flex mt-12' >
+       <div className='flex mt-12 md:flex-row flex-col' >
            <form className='flex flex-col  w-full  items-between' onSubmit={(e)=>handleSubmit(e)}>
                <div className='flex flex-col'>
                <label className="mb-2">Amount</label>
@@ -42,13 +42,14 @@ function LoanRequest({role,email}) {
                 <button type='submit' className='bg-black p-2 mt-6 text-white rounded-lg'>Request</button>
            </form>
            <div className='bg-grey-300 border-l p-4 ml-2 w-full'>
-                <h1 className='text-md ml-4'>Past Loans</h1>
+                <h1 className='text-md '>Past Loans</h1>
                 <div className='w-full  '>
                     {loans.map((loan)=>{
                         return (
-                            <div className='flex w-full justify-between mt-4' key={loan._id}>
-                                  <p> Loan request - {loan.borrowerInfo.loanAmount}</p>
-                                   <p>Status  - {loan.status}</p>
+                            <div className='flex w-full justify-between mt-4  items-center' key={loan._id}>
+                                  <p className='flex md:text-lg'> 💲{loan.borrowerInfo.loanAmount} </p>
+                                   <p className='font-light text-sm  hidden   md:block' >🕕 {new Date(loan.createdAt).toLocaleString()} </p>
+                                   <p className='flex items-center justify-center sm:text-sm md:text-md'> <p className={`w-3 h-3 ${loan.status==='Pending'?'bg-red-500':'bg-green-400'} bg-red-500 rounded-xl  mr-2 flex`}></p> {loan.status}</p>
                              </div>
                         )
                     })}
